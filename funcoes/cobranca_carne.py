@@ -1,11 +1,5 @@
 from gerencianet import Gerencianet
-
-credentials = {
-    'client_id': 'Client_Id_98feb8e4aa192c7d6badc5efdbdec83fa03658ae',
-    'client_secret': 'Client_Secret_8d7bd22e1432364e8759f93a549ec3edf00f3a72',
-    'pix_cert': './seuCert.pem',
-    'sandbox': True
-}
+import credentials
 
 gn = Gerencianet(credentials)
 
@@ -64,4 +58,46 @@ def detailCarnet():
     }
 
     response =  gn.detail_carnet(params=params)
+    print(response)
+
+def cancelCarnet():
+    params = {
+    'id': id()
+    }
+
+    response = gn.cancel_carnet(params=params)
+    print(response)
+
+def cancelParcel():
+    params = {
+    'id': id(),
+    'parcel': int(input("Parcela: "))
+    }
+
+    response = gn.cancel_parcel(params=params)
+    print(response)
+
+def resendCarnet():
+    params = {
+    'id': id()
+    }
+
+    body = {
+        'email': email()
+    }
+
+    response =  gn.resend_carnet(params=params, body=body)
+    print(response)
+
+def resendParcel():
+    params = {
+    'id': id(),
+    'parcel': int(input("Parcela: "))
+    }
+
+    body = {
+        'email': email()
+    }
+
+    response =  gn.resend_parcel(params=params, body=body)
     print(response)

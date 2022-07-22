@@ -15,6 +15,10 @@ menu_1 = str("     -MENU-      \n0 - Encerrar\n\nCobranças via Boleto ou Cartã
 "\n\nCobranças via Carnê"
 "\n13 - Cria um carnê"
 "\n14 - Retorna informações de carnê existente"
+"\n21 - Cancela um determinado carnê"
+"\n22 - Cancelamento de parcela específica de um carnê existente"
+"\n23 - Reenviar carnê por e-mail"
+"\n24 - Reenviar por e-mail determinada parcela de um carnê"
 "\n\nCobranças via Assinaturas"
 "\n15 - Cria o plano de assinatura"
 "\n16 - Retorna informações de um plano"
@@ -106,6 +110,22 @@ def menu_pinc(operador_1):
 
         case 20:
             cobranca_assinatura.paySubscription()
+            main()
+
+        case 21:
+            cobranca_carne.cancelCarnet()
+            main()
+
+        case 22:
+            cobranca_carne.cancelParcel()
+            main()
+
+        case 23:
+            cobranca_carne.resendCarnet()
+            main()
+
+        case 24:
+            cobranca_carne.resendParcel()
             main()
 
         case _:
